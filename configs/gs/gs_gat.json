@@ -1,0 +1,14 @@
+{
+    "model": {
+        "params": {
+            "num_hidden": [8, 16, 32],
+            "attn_drop": [0.2, 0.6]
+        }
+    },
+    "training": {
+        "optimizer": {
+            "lr": [1e-1, 1e-2, 1e-3, 1e-4],
+            "weight_decay": [0, 0.1]
+        }
+    }
+}

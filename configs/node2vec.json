@@ -1,0 +1,50 @@
+{
+    "dataset": {
+        "name": "pubmed",
+        "params": {
+            "raw_dir": "data/"
+        }
+    },
+    "preprocessor": {
+        "name": null,
+        "params": {
+            "ratio": 0.5
+        }
+    },
+    "experiment": {
+        "ghost": false,
+        "output_folder": "temp",
+        "use_saved_datadict": false,
+        "only_max_subgraph": false,
+        "repetitions": 10,
+        "monitor_training": {},
+        "task": {
+            "name": "node_classification",
+            "params": {
+                "k": 1
+            }
+        }
+    },
+    "model": {
+        "name": "node2vec",
+        "params": {
+            "walklen": 80,
+            "n_components": 128,
+            "w2vparams":{"window":5, "iter":1, "alpha": 0.05,"batch_words":128},
+            "epochs": 10,
+            "return_weight": 1,
+            "neighbor_weight": 0.5,
+            "threads" : 4
+        }
+    },
+    "training":{},
+    "evaluation": {
+        "model": {
+            "name": "log_reg",
+            "params": {
+                "penalty": "none",
+                "solver": "newton-cg"
+            }
+        }
+    }
+}

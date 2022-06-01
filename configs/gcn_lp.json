@@ -1,0 +1,72 @@
+{
+    "dataset": {
+        "name": "pubmed",
+        "params": {
+            "raw_dir": "data/"
+        }
+    },
+    "preprocessor":{
+        "name": null,
+        "params": {
+            "ratio": 0.7, 
+            "method": "drop",
+            "ratio_features": 0.4
+        }
+    },
+    "experiment": {
+        "ghost": false, 
+        "output_folder": "temp",
+        "use_saved_datadict": true,
+        "ckpt_save_interval": 1000,
+        "repetitions":1,
+        "val_metrics_interval": 2,
+        "monitor_training": {
+            "save_weight": false,
+            "save_grad": false,
+            "save_interval": 1
+        },
+        "task": {
+            "name": "link_prediction",
+            "params": {
+                "k": 1,
+                "threshold_proba": 0.5
+            }
+        }   
+    },
+    "model": {
+        "name": "GCN_LP",
+        "features": true,
+        "params": {
+            "num_layers": 2,
+            "num_hidden": 32,
+            "activation": "relu",
+            "dropout": 0.3,
+            "dim_embedding": 64,
+            "allow_zero_in_degree": true
+        }
+    },
+    "training": {
+        "batch_size": 256,
+        "n_epochs": 200,
+        "loss": {
+            "use_weights": true
+        },
+        "optimizer": {
+            "lr": 0.001,
+            "weight_decay": 0
+        },
+        "early_stopping": {
+            "patience": 10,
+            "delta": 0
+        }
+    },
+    "evaluation":{
+        "model": {
+            "name": "log_reg",
+            "params":{
+                "penalty": "none",
+                "solver":"newton-cg"
+            }
+        }          
+    }
+}

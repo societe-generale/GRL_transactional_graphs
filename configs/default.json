@@ -1,0 +1,21 @@
+{
+    "dataset": {
+        "name": "ppi",
+        "params": {
+            "raw_dir": "data/"
+        }
+    },
+
+    "experiment": {
+        "ghost": true, 
+        "output_folder": "outputs"
+    },
+
+    "model": {
+        "name": "GAT",
+        "params": {
+            "in_f":10,
+            "out_f":10
+        }
+    }
+}

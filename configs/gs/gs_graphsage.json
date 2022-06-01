@@ -1,0 +1,13 @@
+{
+    "model": {
+        "params": {
+            "num_layers": [2, 3, 4],
+            "num_hidden": [16, 32, 64]
+        }
+    },
+    "training": {
+        "optimizer": {
+            "lr": [1e-2, 1e-3, 1e-4, 1e-5]
+        }
+    }
+}

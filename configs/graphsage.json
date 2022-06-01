@@ -1,0 +1,55 @@
+{
+    "dataset": {
+        "name": "pubmed",
+        "params": {
+            "raw_dir": "data"
+        }
+    },
+    "preprocessor":{
+        "name": null,
+        "params": {
+            "ratio": 0.7,
+            "method":"drop",
+            "ratio_features":0.4
+        }
+    },
+    "experiment": {
+        "ghost": false,
+        "output_folder": "temp",
+        "use_saved_datadict": true,
+        "ckpt_save_interval": 500,
+        "repetitions": 10,
+        "val_metrics_interval": 5,
+        "monitor_training": {
+            "save_weight": false,
+            "save_grad": false,
+            "save_interval": 1
+        },
+        "task":{}
+    },
+    "model": {
+        "name": "GraphSAGE",
+        "params": {
+            "num_layers": 2,
+            "num_hidden": 32,
+            "activation": "relu",
+            "dropout": 0.2,
+            "aggregator_type": "mean"
+        }
+    },
+    "training": {
+        "batch_size": 512,
+        "n_epochs": 200,
+        "optimizer": {
+            "lr": 1e-2,
+            "weight_decay": 5e-4
+        },
+        "early_stopping": {
+            "patience": 10,
+            "delta": 0
+        }
+    },
+    "evaluation":{
+        "model": {}
+    }
+}

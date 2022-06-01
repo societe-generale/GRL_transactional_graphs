@@ -1,0 +1,51 @@
+{
+    "dataset": {
+        "name": "pubmed",
+        "params": {
+            "raw_dir": "data/"
+        }
+
+    },
+    "preprocessor": {
+        "name": null,
+        "params": {
+            "ratio": 0.5
+        }
+    },
+    "experiment": {
+        "ghost": false,
+        "output_folder": "temp",
+        "use_saved_datadict": true,
+        "only_max_subgraph": false,
+        "repetitions": 1,
+        "monitor_training": {},
+        "task": {
+            "name": "node_classification",
+            "params": {
+                "k": 1
+            }
+        }
+    },
+    "model": {
+        "name": "deepwalk",
+        "params": {
+            "walk_number": 10,
+            "walk_length": 80,
+            "dimensions": 128,
+            "window_size": 5,
+            "epochs": 1,
+            "learning_rate": 0.05,
+            "min_count": 1
+        }
+    },
+    "training":{},
+    "evaluation": {
+        "model": {
+            "name": "log_reg",
+            "params": {
+                "penalty": "none",
+                "solver": "newton-cg"
+            }
+        }
+    }
+}

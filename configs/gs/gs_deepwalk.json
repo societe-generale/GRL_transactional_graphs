@@ -1,0 +1,9 @@
+{
+    "model":{
+        "params":{
+            "dimensions": [16, 32, 64, 128],
+            "walk_number": [10, 20],
+            "walk_length": [50, 80, 100]
+        }
+    }
+}

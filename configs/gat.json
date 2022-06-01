@@ -1,0 +1,60 @@
+{
+    "dataset": {
+        "name": "pubmed",
+        "params": {
+            "raw_dir": "data"
+        }
+    },
+    "preprocessor":{
+        "name": null,
+        "params": {
+            "ratio": 0.7,
+            "method":"drop",
+            "ratio_features":0.4
+        }
+    },
+    "experiment": {
+        "ghost": false, 
+        "output_folder": "temp",
+        "use_saved_datadict": false,
+        "ckpt_save_interval": 500,
+        "repetitions": 10,
+        "val_metrics_interval": 5,        
+        "monitor_training": {
+            "save_weight": false,
+            "save_grad": false,
+            "save_interval": 1
+        },
+        "task": {}
+    },
+    "model": {
+        "name": "GAT",
+        "params": {
+            "num_layers":2,
+            "num_hidden":4,
+            "heads": [8, 8],
+            "activation": "elu",
+            "feat_drop": 0.2,
+            "attn_drop": 0.6, 
+            "negative_slope": 0.2,
+            "residual": true,
+            "allow_zero_in_degree": true
+        }
+    },
+    "training":{
+        "batch_size":512,
+        "n_epochs": 100,
+        "optimizer":{
+            "lr": 5e-3,
+            "weight_decay": 5e-4
+        },
+        "early_stopping":{
+            "patience": 5,
+            "delta": 0
+        }
+    },
+    "evaluation":{
+        "model": {}
+    }
+
+}
